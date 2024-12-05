@@ -1,0 +1,55 @@
+`timescale 1ns / 1ps
+
+module tb_binary_to_decimal;
+
+    reg [3:0] in;
+
+    wire [3:0] tens;
+    wire [3:0] ones;
+    
+    binary_to_decimal uut (
+        .in(in),
+        .tens(tens),
+        .ones(ones)
+    );
+
+    initial begin
+        
+        $monitor("Time: %0t | Binary: %b | Decimal: %d%d", $time, in, tens, ones);
+
+        in = 4'b0000; 
+        #10;
+        in = 4'b0001; 
+        #10;
+        in = 4'b0010; 
+        #10;
+        in = 4'b0011; 
+        #10;
+        in = 4'b0100; 
+        #10;
+        in = 4'b0101; 
+        #10;
+        in = 4'b0110; 
+        #10;
+        in = 4'b0111; 
+        #10;
+        in = 4'b1000; 
+        #10;
+        in = 4'b1001; 
+        #10;
+        in = 4'b1010; 
+        #10;
+        in = 4'b1011; 
+        #10;
+        in = 4'b1100; 
+        #10;
+        in = 4'b1101; 
+        #10;
+        in = 4'b1110;
+        #10;
+        in = 4'b1111; 
+        #10;
+
+        $finish;
+    end
+endmodule
